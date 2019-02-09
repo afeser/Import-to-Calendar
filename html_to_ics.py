@@ -58,7 +58,7 @@ while currentDate < endDate:
 
       outFile.write('BEGIN:VEVENT\n')
 
-      currentTime = currentDate + datetime.timedelta(days=x) + datetime.timedelta(seconds=60*int(hours.split('.')[1]) + 3600*int(hours.split('.')[0]))
+      currentTime = currentDate + datetime.timedelta(days=x-1) + datetime.timedelta(seconds=60*int(hours.split('.')[1]) + 3600*int(hours.split('.')[0]))
       outFile.write('DTSTART:' + currentTime.strftime('%Y%m%d') + 'T' + currentTime.strftime('%H%M') + '00Z\n')
       currentTime = currentTime + datetime.timedelta(seconds=60*lengthOfALectureHour)
       outFile.write('DTEND:' + currentTime.strftime('%Y%m%d') + 'T' + currentTime.strftime('%H%M') + '00Z\n')
