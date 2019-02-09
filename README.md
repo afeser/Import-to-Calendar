@@ -12,3 +12,4 @@ A simple gif explains how it roughly works.
 ## Additional Notes
 * Unfortunately, the script is highly hard coded, the simplest change in any step would end up with a big interruption of the scrpipt. But, any help is welcome!
 * I advise to use a different calendar than yours, you may ruin your whole calendar.
+* You need to also add your time zone information when asked, it is not shown in example gif, but otherwise the times may shift.

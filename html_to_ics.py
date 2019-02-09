@@ -14,8 +14,9 @@ def writeHeader():
   f.close()
 
 
-startDateStr = raw_input('Start date of the courses(YYYY-MM-DD)') #'2019-02-10' #
-endDateStr   = raw_input('End date of the courses(YYYY-MM-DD)') #'2019-05-31' #
+startDateStr = raw_input('Start date of the courses(YYYY-MM-DD)\t: ') #'2019-02-10' #
+endDateStr   = raw_input('End date of the courses(YYYY-MM-DD)\t: ') #'2019-05-31' #
+timeZone     = raw_input('Time Zone(+4,-2)\t\t\t: ')
 
 t = startDateStr.split('-')
 f = endDateStr.split('-')
@@ -24,6 +25,13 @@ startDate = datetime.datetime(int(t[0]), int(t[1]), int(t[2]), 0, 0, 0) # Start 
 endDate   = datetime.datetime(int(f[0]), int(f[1]), int(f[2]), 0, 0, 0) # End date of the event, when the final class hour will be held
 
 currentDate = copy.copy(startDate)
+if timeZone[0] == '-':
+  currentDate = currentDate + datetime.timedelta(seconds=3600*int(timeZone[1:]))
+elif timeZone[0] == '+':
+  currentDate = currentDate - datetime.timedelta(seconds=3600*int(timeZone[1:]))
+else:
+  print 'Time zone parse error!'
+  exit()
 
 writeHeader()
 
