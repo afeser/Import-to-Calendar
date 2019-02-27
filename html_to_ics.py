@@ -7,12 +7,16 @@ outputFileName       = 'toCalendar.csi'
 inputFileName        = 'fromExcel.html'
 lengthOfALectureHour = 50 # min
 
+def printHowtoUse():
+  print("This will convert fromExcel.html file to toCalendar.csi file!")
 
 def writeHeader():
   f = open(outputFileName, 'w')
   f.write('BEGIN:VCALENDAR\nVERSION:2.0\n')
   f.close()
 
+
+printHowtoUse()
 
 startDateStr = raw_input('Start date of the courses(YYYY-MM-DD)\t: ') #'2019-02-10' #
 endDateStr   = raw_input('End date of the courses(YYYY-MM-DD)\t: ') #'2019-05-31' #
